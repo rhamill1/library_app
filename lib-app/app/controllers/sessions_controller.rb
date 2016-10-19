@@ -12,7 +12,13 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       redirect_to login_path
+      flash[:notice] = 'your creds are weak'
     end
+  end
+
+  def destroy
+    logout
+    redirect_to root_path
   end
 
 end
