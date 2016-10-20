@@ -13,4 +13,10 @@ module SessionsHelper
     @current_user = session[:user_id] = nil
   end
 
+  def logged_in?
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
+  end
+
 end
